@@ -253,7 +253,7 @@ namespace
 
 int gsc(int argc, char *argv[])
 {
-    std::cerr << "gsc (Built on " __DATE__ " " __TIME__ ")\n";
+    std::cerr << "GSC (Built on " __DATE__ " " __TIME__ ")\n";
 
     CmdLine cmd("gsc [options]");
 
