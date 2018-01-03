@@ -9,10 +9,10 @@ if [ $1 == "lnx64" ]; then
 
 elif [ $1 == "win32" ]; then
 
-    i686-w64-mingw32-g++ *.cpp -o gsc-$1/gsc.exe -s -O2 -std=c++11 -static -L./mingw32/lib -llapack -lblas -lgfortran -lquadmath
+    i686-w64-mingw32-g++ *.cpp -o gsc-$1/gsc.exe -s -O2 -std=c++11 -static -L../mingw32/lib -llapack -lblas -lgfortran -lquadmath
 
 elif [ $1 == "win64" ]; then
 
-    x86_64-w64-mingw32-g++ *.cpp -o gsc-$1/gsc.exe -s -O2 -std=c++11 -static -L./mingw64/lib -llapack -lblas -lgfortran -lquadmath
+    x86_64-w64-mingw32-g++ *.cpp -o gsc-$1/gsc.exe -s -O2 -std=c++11 -static -L../mingw64/lib -llapack -lblas -lgfortran -lquadmath
 
 fi
