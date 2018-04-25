@@ -207,7 +207,7 @@ namespace
         return 0;
     }
 
-    int write_eigenvalues(int n, std::vector<double> &eval, const std::string &filename)
+    int write_eigenvalues(int n, const std::vector<double> &eval, const std::string &filename)
     {
         std::ofstream ofs(filename);
         if (!ofs) {
