@@ -207,7 +207,7 @@ namespace
         return 0;
     }
 
-    int write_eigenvalues(std::vector<double> &eval, const std::string &filename)
+    int write_eigenvalues(int n, std::vector<double> &eval, const std::string &filename)
     {
         std::ofstream ofs(filename);
         if (!ofs) {
@@ -215,10 +215,14 @@ namespace
             return 1;
         }
 
-        double sum = std::accumulate(eval.begin(), eval.end(), 0.0);
+        double sum = 0.0;
+        for (auto e : eval) {
+            if (e > 0)
+                sum += e;
+        }
 
-        for (auto e : eval)
-            ofs << e << "\t" << 100 * e / sum << "\n";
+        for (int i = 0; i < n; ++i)
+            ofs << eval[i] << "\t" << 100 * eval[i] / sum << "\n";
 
         return 0;
     }
@@ -288,12 +292,11 @@ int gsc(int argc, char *argv[])
 
     eigen(mat, eval, evec);
 
-    eval.resize(par.top);
     evec.resize(par.top);
 
     write_gsc_matrix(gt.ind, mat, par.out + ".mat");
 
-    write_eigenvalues(eval, par.out + ".eval");
+    write_eigenvalues(par.top, eval, par.out + ".eval");
 
     write_eigenvectors(gt.ind, evec, par.out + ".evec");
 
