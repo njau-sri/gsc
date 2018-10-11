@@ -5,7 +5,7 @@ mkdir gsc-$1
 
 if [ $1 == "lnx64" ]; then
 
-    g++ *.cpp -o gsc-$1/gsc -s -O2 -std=c++11 -static -llapack -lrefblas -lgfortran -lquadmath
+    g++ *.cpp -o gsc-$1/gsc -s -O2 -std=c++11 -static -llapack -lblas -lgfortran -lquadmath
 
 elif [ $1 == "win32" ]; then
 
